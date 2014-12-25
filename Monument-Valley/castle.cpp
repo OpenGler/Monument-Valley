@@ -1955,12 +1955,14 @@ void myDisplay()
 	drawSun();
 	glPopMatrix();
 
+	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
 	//glTranslatef(0.0,0.0,-2.0f);
 	glRotatef(2*u,0.0,1.0,0.0);
 	glScalef(0.35,0.35,0.35);
 	drawCastle();
 	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 
 	/*glPushMatrix();
 	glTranslatef(light_position[0], light_position[1],light_position[2]);

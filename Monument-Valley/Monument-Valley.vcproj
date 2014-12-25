@@ -43,9 +43,10 @@
 				Name="VCCLCompilerTool"
 				Optimization="0"
 				PreprocessorDefinitions="WIN32;_DEBUG"
+				StringPooling="true"
 				RuntimeLibrary="3"
 				WarningLevel="3"
-				DebugInformationFormat="3"
+				DebugInformationFormat="1"
 			/>
 			<Tool
 				Name="VCManagedResourceCompilerTool"
@@ -165,7 +166,39 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\birdA.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\birdB.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\castle.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\commandAndAction.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\cube.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\getNormAndTranslate.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\main.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\sunAndLight.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\texturesAndEnviro.cpp"
 				>
 			</File>
 		</Filter>
@@ -174,6 +207,10 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\main.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"

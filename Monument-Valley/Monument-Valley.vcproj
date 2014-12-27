@@ -218,6 +218,34 @@
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
 		</Filter>
+		<Filter
+			Name="Data"
+			>
+			<File
+				RelativePath=".\Data\No1.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Data\No2.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Data\No3.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Data\No4.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Data\No5.bmp"
+				>
+			</File>
+			<File
+				RelativePath=".\Data\No6.bmp"
+				>
+			</File>
+		</Filter>
 	</Files>
 	<Globals>
 	</Globals>

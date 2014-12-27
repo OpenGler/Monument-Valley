@@ -1,5 +1,7 @@
 #include "main.h"
 
+	GLuint texture[6];
+
 	int u = 1;
 	int t1 = 1, r1 = 0, s1 = 3;
 	int t2 = 1, r2 = 0, s2 = 3;

@@ -3,7 +3,7 @@
 	GLuint texture[6];
 
 	int u = 1;
-	int t1 = 1, r1 = 0, s1 = 3;
+	int t1 = 1, r1 = 0, s1 = 5;
 	int t2 = 1, r2 = 0, s2 = 3;
 	int t3 = 0, r3 = 0, s3 = 1;
 
@@ -174,46 +174,42 @@ void myDisplay()
 		fx[view],fy[view],fz[view],
 		0.0,1.0,0.0);//视点转换
 	
-	////画地面网格
-	//glPushMatrix();
-	//drawCoordinateSystem();
-	//glPopMatrix();
-
-	//glPushMatrix();
-	////坐标变换
-	//if(iMore<8&&iMore>0){
-	//	translate(0.6);
-	//}
-	//else if(iMore==8||iMore == 16|| iMore == 24|| iMore==32){
-	//	r1+=9;
-	//	translate(0.6);
-	//}
-	//else if(iMore>8&&iMore<16){
-	//	//r1=9;
-	// 	translate(0.6);
-	//}	
-	//else if(iMore>16&&iMore<24){
-	//	//r1=18;
-	// 	translate(0.6);
-	//}	
-	//else if(iMore>24&&iMore<32){
-	//	//r1=27;
-	// 	translate(0.6);
-	//}	
-	//glTranslatef(pox,0.0,poy);
-	////glTranslatef(+pox,0.0,0.0);
-	//glRotatef(10*r1,0.0,1.0,0.0);
-	//glScalef(0.2*s1,0.2*s1,0.2*s1);
-	//drawBirdA();
-	//glPopMatrix();
+	//画birdA
+	glPushMatrix();
+	//坐标变换
+	if(iMore<8&&iMore>0){
+		translate(0.6);
+	}
+	else if(iMore==8||iMore == 16|| iMore == 24|| iMore==32){
+		r1+=9;
+		translate(0.6);
+	}
+	else if(iMore>8&&iMore<16){
+		//r1=9;
+	 	translate(0.6);
+	}	
+	else if(iMore>16&&iMore<24){
+		//r1=18;
+	 	translate(0.6);
+	}	
+	else if(iMore>24&&iMore<32){
+		//r1=27;
+	 	translate(0.6);
+	}	
+	glTranslatef(pox,27*0.35,poy);
+	glRotatef(10*r1,0.0,1.0,0.0);
+	glScalef(0.2*s1,0.2*s1,0.2*s1);
+	drawBirdA();
+	glPopMatrix();
 
 	GLfloat m[16];//课件上的
     int i;
 	for(i=0;i<16;i++) m[i]=0.0;
     m[0]=m[5]=m[10]=1.0;
 	m[7]=-1.0/light_position[1];
-
-	/*glPushMatrix();
+	
+	//画birdA阴影
+	glPushMatrix();
 	glTranslatef(light_position[0], light_position[1],light_position[2]);
 	glMultMatrixf(m);
 	glTranslatef(-light_position[0], -light_position[1],-light_position[2]);
@@ -222,13 +218,19 @@ void myDisplay()
 	glRotatef(10*r1,0.0,1.0,0.0);
 	glScalef(0.2*s1,0.2*s1,0.2*s1);
 	drawShadowBirdA();
-	glPopMatrix();*/
+	glPopMatrix();
 
 	//glPushMatrix();
 	//glScalef(0.5,0.5,0.5);
 	//glTranslatef(1,0.0,0.0);
 	//drawBirdB();
 	//glPopMatrix();
+
+	//画太阳
+	glPushMatrix();
+	glTranslatef(lx,ly,lz);
+	drawSun();
+	glPopMatrix();
 
 	//画背景纹理
 	glEnable(GL_TEXTURE_2D);
@@ -237,22 +239,16 @@ void myDisplay()
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 	
-	//画太阳
-	glPushMatrix();
-	glTranslatef(lx,ly,lz);
-	drawSun();
-	glPopMatrix();
-	
 	//画城堡
 	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
-	//glTranslatef(0.0,0.0,-2.0f);
 	glRotatef(2*u,0.0,1.0,0.0);
 	glScalef(0.35,0.35,0.35);
 	drawCastle();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
 
+	//画城堡阴影
 	/*glPushMatrix();
 	glTranslatef(light_position[0], light_position[1],light_position[2]);
 	glMultMatrixf(m);

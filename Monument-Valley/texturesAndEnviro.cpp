@@ -22,6 +22,7 @@ AUX_RGBImageRec *LoadBMP(char *Filename)    // 根据位图文件的名称进行加载
 	return NULL;          // 位图文件加载失败就返回NULL
 }
 
+
 //创建纹理&绑定纹理
 int LoadGLTextures()         // 根据加载的位图创建纹理
 {
@@ -66,28 +67,51 @@ int LoadGLTextures()         // 根据加载的位图创建纹理
 	return Status;          // 创建纹理并加载，返回成功或者失败的标志Status
 }
 
+
 //画背景
-void drawBackground()
+void drawBackground()      
 {
 	glScalef(1,1,1);
 
-	glPushMatrix();
+
+	// Front Face
 	glBindTexture(GL_TEXTURE_2D, texture[2]);
-	glPushMatrix();
 	glBegin(GL_QUADS);
-	glTexCoord2f(1.0f,1.0f);glVertex3f(-80.0f,0.0f,-80.0f);
-	glTexCoord2f(0.0f,1.0f);glVertex3f(80.0f,0.0f,-80.0f);
-	glTexCoord2f(1.0f,0.0f);glVertex3f(-80.0f,0.0f,80.0f);
-	glTexCoord2f(0.0f,0.0f);glVertex3f(80.0f,0.0f,80.0f);
+	GLfloat tex0v1[3] = {-1.0f, -1.0f, 1.0f};
+	GLfloat tex0v2[3] = {1.0f, -1.0f, 1.0f};
+	GLfloat tex0v3[3] = {1.0f, 1.0f, 1.0f};
+	//设置法向量
+	GLfloat tex0normal[3];
+    norm(tex0v1,tex0v2,tex0v3,tex0normal);
+	glNormal3f(tex0normal[0],tex0normal[1],tex0normal[2]);
 
-	glTexCoord2f(1.0f,1.0f);glVertex3f(-80.0f,0.0f,-80.0f);
-	glTexCoord2f(0.0f,1.0f);glVertex3f(80.0f,0.0f,-80.0f);
-	glTexCoord2f(1.0f,0.0f);glVertex3f(80.0f,80.0f,-80.0f);
-	glTexCoord2f(0.0f,0.0f);glVertex3f(-80.0f,80.0f,-80.0f);
+	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);
+	   glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.0f, -1.0f, 1.0f);
+	   glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.0f, 1.0f, 1.0f);
+	   glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
+    
+	glEnd();
 
-	glPopMatrix();
+	  
+	//// Top Face
+	//glBindTexture(GL_TEXTURE_2D, texture[2]);
+	//glBegin(GL_QUADS);
+ //   GLfloat tex2v1[3] = {-1.0f, 1.0f, -1.0f};
+	//GLfloat tex2v2[3] = {-1.0f, 1.0f, 1.0f};
+	//GLfloat tex2v3[3] = {1.0f, 1.0f, 1.0f};
+
+	////设置法向量
+	//GLfloat tex2normal[3];
+ //   norm(tex2v1,tex2v2,tex2v3,tex2normal);
+	//glNormal3f(tex2normal[0],tex2normal[1],tex2normal[2]);
+
+	//   glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);
+	//   glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
+	//   glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.0f, 1.0f, 1.0f);
+	//   glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.0f, 1.0f, -1.0f);
+ //   
+	glEnd();    
 }
-
 
 //画坐标系
 void drawCoordinateSystem()

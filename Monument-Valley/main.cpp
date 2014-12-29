@@ -174,7 +174,7 @@ void myDisplay()
 		fx[view],fy[view],fz[view],
 		0.0,1.0,0.0);//视点转换
 	
-
+	//画地面网格
 	glPushMatrix();
 	drawCoordinateSystem();
 	glPopMatrix();
@@ -230,19 +230,31 @@ void myDisplay()
 	//drawBirdB();
 	//glPopMatrix();
 
+	//画背景纹理
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	//glTranslatef(0.0,0.0,-2.0f);
+	//glRotatef(2*u,0.0,1.0,0.0);
+	//glScalef(0.35,0.35,0.35);
+	drawBackground();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+	
+	//画太阳
 	glPushMatrix();
 	glTranslatef(lx,ly,lz);
 	drawSun();
 	glPopMatrix();
-
-	glEnable(GL_TEXTURE_2D);
-	glPushMatrix();
-	//glTranslatef(0.0,0.0,-2.0f);
-	glRotatef(2*u,0.0,1.0,0.0);
-	glScalef(0.35,0.35,0.35);
-	drawCastle();
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
+	
+	////画城堡
+	//glEnable(GL_TEXTURE_2D);
+	//glPushMatrix();
+	////glTranslatef(0.0,0.0,-2.0f);
+	//glRotatef(2*u,0.0,1.0,0.0);
+	//glScalef(0.35,0.35,0.35);
+	//drawCastle();
+	//glPopMatrix();
+	//glDisable(GL_TEXTURE_2D);
 
 	/*glPushMatrix();
 	glTranslatef(light_position[0], light_position[1],light_position[2]);

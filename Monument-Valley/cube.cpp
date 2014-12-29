@@ -812,8 +812,6 @@ void drawSolidTera()
 		glTexCoord2f(0.0f, 0.0f);glVertex3f(0.0,1.0,0.0);
 		glTexCoord2f(1.0f, 0.0f);glVertex3f(1.0,-1.0,-1.0);
 		glTexCoord2f(1.0f, 1.0f);glVertex3f(-1.0,-1.0,-1.0);
-		
-		//glEnd();
 
 		
 		/*左侧面的绘制*/
@@ -831,10 +829,4 @@ void drawSolidTera()
 
 	glEnd();
 	glPopMatrix();
-}
-
-//画空心四棱锥
-void drawWireTera()
-{
-	//还没写
 }

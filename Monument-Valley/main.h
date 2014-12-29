@@ -90,7 +90,6 @@ void drawCube05(GLvoid);//绘制cube（圆环）
 void drawCube06(GLvoid);//绘制cube(细棱柱)
 void drawCube07(GLvoid);//绘制cube（扁三棱柱）
 void drawSolidTera();//画实心四棱锥
-void drawWireTera();//画空心四棱锥
 
 
 

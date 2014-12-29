@@ -8,7 +8,7 @@
 	int t3 = 0, r3 = 0, s3 = 1;
 
 	int ax = 0, ay = 0, az = 0;
-	float lx =0, ly =0.5, lz =0;
+	float lx =0.5, ly =11, lz =5;
 	float pox = 0.0, poy = 0.0, poz = 0.0;
 
 	//设置轨迹参数
@@ -17,13 +17,13 @@
 	unsigned int  iMore = 0;
 
 	GLint view = 0;
-	GLfloat ex[3] = {-5, -5, -5};
-	GLfloat ey[3] = {10.0, 10.0, 10.0};
-	GLfloat ez[3] = {10.0, 10.0, 10.0};
+	GLfloat ex[3] = {-1, -1, -1};
+	GLfloat ey[3] = {11.0, 11.0, 11.0};
+	GLfloat ez[3] = {8.0, 8.0, 8.0};
 
 	//观察对象位置
 	GLfloat fx[3] = { 0.0, 0.0, 0.0};
-	GLfloat fy[3] = { 5.0, 5.0, 5.0};
+	GLfloat fy[3] = { 7.0, 7.0, 7.0};
 	GLfloat fz[3] = { 0.0, 0.0, 0.0};
 	
 	//指定光源的位置
@@ -174,10 +174,10 @@ void myDisplay()
 		fx[view],fy[view],fz[view],
 		0.0,1.0,0.0);//视点转换
 	
-	//画地面网格
-	glPushMatrix();
-	drawCoordinateSystem();
-	glPopMatrix();
+	////画地面网格
+	//glPushMatrix();
+	//drawCoordinateSystem();
+	//glPopMatrix();
 
 	//glPushMatrix();
 	////坐标变换
@@ -233,9 +233,6 @@ void myDisplay()
 	//画背景纹理
 	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
-	//glTranslatef(0.0,0.0,-2.0f);
-	//glRotatef(2*u,0.0,1.0,0.0);
-	//glScalef(0.35,0.35,0.35);
 	drawBackground();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
@@ -246,15 +243,15 @@ void myDisplay()
 	drawSun();
 	glPopMatrix();
 	
-	////画城堡
-	//glEnable(GL_TEXTURE_2D);
-	//glPushMatrix();
-	////glTranslatef(0.0,0.0,-2.0f);
-	//glRotatef(2*u,0.0,1.0,0.0);
-	//glScalef(0.35,0.35,0.35);
-	//drawCastle();
-	//glPopMatrix();
-	//glDisable(GL_TEXTURE_2D);
+	//画城堡
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	//glTranslatef(0.0,0.0,-2.0f);
+	glRotatef(2*u,0.0,1.0,0.0);
+	glScalef(0.35,0.35,0.35);
+	drawCastle();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
 
 	/*glPushMatrix();
 	glTranslatef(light_position[0], light_position[1],light_position[2]);

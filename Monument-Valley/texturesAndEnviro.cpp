@@ -85,20 +85,20 @@ void drawBackground()
 		glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
 
 	// Front Face
-	glBindTexture(GL_TEXTURE_2D, texture[0]);
+	glBindTexture(GL_TEXTURE_2D, texture[2]);
 	glBegin(GL_QUADS);
-	GLfloat tex0v1[3] = {-1.0f, -1.0f, 1.0f};
-	GLfloat tex0v2[3] = {1.0f, -1.0f, 1.0f};
-	GLfloat tex0v3[3] = {1.0f, 1.0f, 1.0f};
+	GLfloat tex0v1[3] = {-80.0f, 0.0f, -20.0f};
+	GLfloat tex0v2[3] = {80.0f, 0.0f, -20.0f};
+	GLfloat tex0v3[3] = {80.0f, 30.0f, -20.0f};
 	//设置法向量
 	GLfloat tex0normal[3];
     norm(tex0v1,tex0v2,tex0v3,tex0normal);
 	glNormal3f(tex0normal[0],tex0normal[1],tex0normal[2]);
 
-	glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 1.0f);
-	   glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.0f, -1.0f, 1.0f);
-	   glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.0f, 1.0f, 1.0f);
-	   glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
+	glTexCoord2f(0.0f, 0.5f); glVertex3f(-80.0f, 0.0f, -30.0f);
+	   glTexCoord2f(1.0f, 0.5f); glVertex3f( 80.0f, 0.0f, -30.0f);
+	   glTexCoord2f(1.0f, 1.0f); glVertex3f( 80.0f, 30.0f, -30.0f);
+	   glTexCoord2f(0.0f, 1.0f); glVertex3f(-80.0f, 30.0f, -30.0f);
     
 	glEnd();
 
@@ -106,19 +106,19 @@ void drawBackground()
 	// Top Face
 	glBindTexture(GL_TEXTURE_2D, texture[2]);
 	glBegin(GL_QUADS);
-    GLfloat tex2v1[3] = {-1.0f, 1.0f, -1.0f};
-	GLfloat tex2v2[3] = {-1.0f, 1.0f, 1.0f};
-	GLfloat tex2v3[3] = {1.0f, 1.0f, 1.0f};
+    GLfloat tex2v1[3] = {-80.0f, 0.0f, -20.0f};
+	GLfloat tex2v2[3] = {-80.0f, 0.0f, 20.0f};
+	GLfloat tex2v3[3] = {80.0f, 0.0f, 20.0f};
 
 	//设置法向量
 	GLfloat tex2normal[3];
     norm(tex2v1,tex2v2,tex2v3,tex2normal);
 	glNormal3f(tex2normal[0],tex2normal[1],tex2normal[2]);
 
-	   glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);
-	   glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
-	   glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.0f, 1.0f, 1.0f);
-	   glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.0f, 1.0f, -1.0f);
+	   glTexCoord2f(0.0f, 0.5f); glVertex3f(-80.0f, 0.0f, -30.0f);
+	   glTexCoord2f(0.0f, 0.0f); glVertex3f(-80.0f, 0.0f, 10.0f);
+	   glTexCoord2f(1.0f, 0.0f); glVertex3f( 80.0f, 0.0f, 10.0f);
+	   glTexCoord2f(1.0f, 0.5f); glVertex3f( 80.0f, 0.0f, -30.0f);
     
 	glEnd();    
 }

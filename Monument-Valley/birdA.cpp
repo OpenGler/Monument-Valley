@@ -2,18 +2,7 @@
 
 void drawBirdA()
 {
-	//glEnable(GL_COLOR_MATERIAL);
-	//glColorMaterial(GL_FRONT, GL_AMBIENT);
-	//设置材料属性
-		GLfloat material_ambient1[] = {0.1, 0.1, 0.1, 1.0};
-		GLfloat material_diffuse1[] = {0.5, 0.5, 0.5, 1.0};
-		GLfloat material_specular1[] = {0.0, 0.0, 0.0, 1.0};
-		GLfloat material_shininess1 = 1.0;
-
-		glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient1);
-		glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse1);
-		glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular1);
-		glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
+	materialLight2();
 
 	//头
 	glPushMatrix();
@@ -106,10 +95,7 @@ void drawBirdA()
 	glutSolidSphere(R3,100,100);
 	glPopMatrix();
 
-		glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient1);
-		glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse1);
-		glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular1);
-		glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
+	materialLight2();
 
 	//眼睛右
 	glPushMatrix();
@@ -131,20 +117,7 @@ void drawBirdA()
 	glutSolidSphere(R3,100,100);
 	glPopMatrix();
 
-		GLfloat material_ambient3[] = {1.0, 0.0, 0.0, 1.0};
-		GLfloat material_diffuse3[] = {1.0, 0.0, 0.0, 1.0};
-		GLfloat material_specular3[] = {1.0, 0.0, 0.0, 1.0};
-		GLfloat material_shininess3 = 100.0;
-
-		//glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient3);
-		//glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse3);
-		//glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular3);
-		//glMaterialf( GL_FRONT, GL_SHININESS, material_shininess3);
-
-		glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient1);
-		glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse1);
-		glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular1);
-		glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
+	materialLight2();
 
 	//身子
 	glPushMatrix();

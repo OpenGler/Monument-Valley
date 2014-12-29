@@ -106,6 +106,8 @@ int LoadGLTextures();//创建纹理&绑定纹理
 AUX_RGBImageRec *LoadBMP(char*);//加载位图
 void drawBackground();//画背景
 void drawCoordinateSystem();//画坐标系
+void materialLight1();//物体材料设定1    给城堡和环境的材料设定
+void materialLight2();//物体材料设定2	 给乌鸦的材料设定
 
 
 

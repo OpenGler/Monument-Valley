@@ -394,15 +394,7 @@ void drawPart3()
 void drawCastle()
 {
 		//GLfloat material_ambient1[] = {0.3, 0.3, 0.3, 1.0};
-		GLfloat material_ambient1[] = {0.5, 0.5, 0.5, 1.0};
-		GLfloat material_diffuse1[] = {0.9, 0.9, 0.9, 1.0};
-		GLfloat material_specular1[] = {0.0, 0.0, 0.0, 1.0};
-		GLfloat material_shininess1 = 1.0;
-
-		glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient1);
-		glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse1);
-		glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular1);
-		glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
+	materialLight1();
 
 	glPushMatrix();
 	glTranslatef(-6*2,0.0f,0.0f);

@@ -73,6 +73,16 @@ void drawBackground()
 {
 	glScalef(1,1,1);
 
+	//GLfloat material_ambient1[] = {0.3, 0.3, 0.3, 1.0};
+		GLfloat material_ambient1[] = {0.5, 0.5, 0.5, 1.0};
+		GLfloat material_diffuse1[] = {0.9, 0.9, 0.9, 1.0};
+		GLfloat material_specular1[] = {0.0, 0.0, 0.0, 1.0};
+		GLfloat material_shininess1 = 1.0;
+
+		glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient1);
+		glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse1);
+		glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular1);
+		glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
 
 	// Front Face
 	glBindTexture(GL_TEXTURE_2D, texture[0]);
@@ -138,4 +148,32 @@ void drawCoordinateSystem()
 	glEnd();
 	glPopMatrix();
 
+}
+
+//物体材料设定1
+void materialLight1()
+{
+	GLfloat material_ambient1[] = {0.5, 0.5, 0.5, 1.0};
+	GLfloat material_diffuse1[] = {0.9, 0.9, 0.9, 1.0};
+	GLfloat material_specular1[] = {0.0, 0.0, 0.0, 1.0};
+	GLfloat material_shininess1 = 1.0;
+
+	glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient1);
+	glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse1);
+	glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular1);
+	glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
+}
+
+//物体材料设定2
+void materialLight2()
+{
+	GLfloat material_ambient1[] = {0.1, 0.1, 0.1, 1.0};
+	GLfloat material_diffuse1[] = {0.5, 0.5, 0.5, 1.0};
+	GLfloat material_specular1[] = {0.0, 0.0, 0.0, 1.0};
+	GLfloat material_shininess1 = 1.0;
+
+	glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient1);
+	glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse1);
+	glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular1);
+	glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
 }

@@ -75,7 +75,7 @@ void drawBackground()
 
 
 	// Front Face
-	glBindTexture(GL_TEXTURE_2D, texture[2]);
+	glBindTexture(GL_TEXTURE_2D, texture[0]);
 	glBegin(GL_QUADS);
 	GLfloat tex0v1[3] = {-1.0f, -1.0f, 1.0f};
 	GLfloat tex0v2[3] = {1.0f, -1.0f, 1.0f};
@@ -93,23 +93,23 @@ void drawBackground()
 	glEnd();
 
 	  
-	//// Top Face
-	//glBindTexture(GL_TEXTURE_2D, texture[2]);
-	//glBegin(GL_QUADS);
- //   GLfloat tex2v1[3] = {-1.0f, 1.0f, -1.0f};
-	//GLfloat tex2v2[3] = {-1.0f, 1.0f, 1.0f};
-	//GLfloat tex2v3[3] = {1.0f, 1.0f, 1.0f};
+	// Top Face
+	glBindTexture(GL_TEXTURE_2D, texture[2]);
+	glBegin(GL_QUADS);
+    GLfloat tex2v1[3] = {-1.0f, 1.0f, -1.0f};
+	GLfloat tex2v2[3] = {-1.0f, 1.0f, 1.0f};
+	GLfloat tex2v3[3] = {1.0f, 1.0f, 1.0f};
 
-	////设置法向量
-	//GLfloat tex2normal[3];
- //   norm(tex2v1,tex2v2,tex2v3,tex2normal);
-	//glNormal3f(tex2normal[0],tex2normal[1],tex2normal[2]);
+	//设置法向量
+	GLfloat tex2normal[3];
+    norm(tex2v1,tex2v2,tex2v3,tex2normal);
+	glNormal3f(tex2normal[0],tex2normal[1],tex2normal[2]);
 
-	//   glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);
-	//   glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
-	//   glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.0f, 1.0f, 1.0f);
-	//   glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.0f, 1.0f, -1.0f);
- //   
+	   glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, -1.0f);
+	   glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, 1.0f, 1.0f);
+	   glTexCoord2f(1.0f, 0.0f); glVertex3f( 1.0f, 1.0f, 1.0f);
+	   glTexCoord2f(1.0f, 1.0f); glVertex3f( 1.0f, 1.0f, -1.0f);
+    
 	glEnd();    
 }
 

@@ -103,21 +103,27 @@ void mymenu(int id)
 	if(id == 2) //还原
 	{
 		glClear(GL_COLOR_BUFFER_BIT);
-		t1 = 1;
-		r1 = 0;
-		s1 = 3;
-		t2 = 1;
-		r2 = 0;
-		s2 = 3;
-		t3 = 0;
-		r3 = 0;
-		s3 = 1;
-		GLfloat ex[3] = {-1.0, 0.0, 0.0}; //观察者位置
-		GLfloat ey[3] = {1.0, 0.0, 0.0};
-		GLfloat ez[3] = {2.0, 2.0, 2.0};
-		GLfloat fx[3] = {0.0, 0.0, 0.0}; //观察对象位置
-		GLfloat fy[3] = {1.0, 1.0, 1.0};
-		GLfloat fz[3] = {0.0, 0.0, 0.0};
+
+		u = 1;//城堡旋转
+		t1 = 1;r1 = 0;s1 = 5;//birdA
+		t2 = 1;r2 = 0;s2 = 3;//birdB
+		t3 = 0;r3 = 0;s3 = 1;//
+
+		//光照
+		ax = 0;ay = 0;az = 0;
+		lx =0.5;ly =11;lz =5;
+		pox = 0.0;poy = 0.0;poz = 0.0;
+
+		//照相机位置
+		ex[0] = -1;
+		ey[0] = 11.0;
+		ez[0] = 8.0;
+
+		//观察对象位置
+		fx[0] = 0.0;
+		fy[0] = 7.0;
+		fz[0] = 0.0;
+		
 		glutPostRedisplay();
 	}
 }

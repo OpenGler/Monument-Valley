@@ -406,7 +406,7 @@ void drawCastle()
 	glRotatef(180,0.0f,1.0f,0.0f);
 	drawPart1();
 	glPopMatrix();
-
+  
 	glPushMatrix();
 	drawPart2();
 	glPopMatrix();

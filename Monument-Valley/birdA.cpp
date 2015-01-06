@@ -129,7 +129,7 @@ void drawBirdA()
 
 	//”“Õ»
 	glPushMatrix();
-	glColor3f(0.0f,0.0f,0.0f);
+	glColor3f(0.0f,1.0f,1.0f);
 	glTranslatef(0,R1,-2*R4);
 	glRotatef(90, 1.0, 0.0, 0.0);
 	GLUquadricObj *objCylinder = gluNewQuadric();
@@ -137,7 +137,7 @@ void drawBirdA()
 	glPopMatrix();
 	//◊ÛÕ»
 	glPushMatrix();
-	glColor3f(0.0f,0.0f,0.0f);
+	glColor3f(0.0f,1.0f,1.0f);
 	glTranslatef(0,R1,2*R4);
 	glRotatef(90, 1.0, 0.0, 0.0);
 	gluCylinder(objCylinder, R4, R4, R1, 32, 5);

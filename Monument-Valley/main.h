@@ -123,6 +123,7 @@ void drawBackground();//画背景
 void drawCoordinateSystem();//画坐标系
 void materialLight1();//物体材料设定1    给城堡和环境的材料设定
 void materialLight2();//物体材料设定2	 给乌鸦的材料设定
+void materialLight3();//物体材料设定3	 给乌鸦的眼睛材料设定
 
 
 

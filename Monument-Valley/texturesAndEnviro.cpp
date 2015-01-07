@@ -177,3 +177,17 @@ void materialLight2()
 	glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular1);
 	glMaterialf( GL_FRONT, GL_SHININESS, material_shininess1);
 }
+
+//物体材料设定3
+void materialLight3()
+{
+	GLfloat material_ambient2[] = {0.0, 0.0, 0.0, 1.0};
+	GLfloat material_diffuse2[] = {0.0, 0.0, 0.0, 1.0};
+	GLfloat material_specular2[] = {0.0, 0.0, 0.0, 1.0};
+	GLfloat material_shininess2 = 100.0;
+
+	glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient2);
+	glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse2);
+	glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular2);
+	glMaterialf( GL_FRONT, GL_SHININESS, material_shininess2);
+}

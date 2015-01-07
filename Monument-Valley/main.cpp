@@ -3,10 +3,20 @@
 	GLuint texture[6];
 
 	int u = 1;
-	int t1 = 1, r1 = 0, s1 = 5;
-	int t2 = 1, r2 = 0, s2 = 3;
+	int t1 = 1, r1 = 0, s1 = 9;
+	int t2 = 1, r2 = 0, s2 = 9;
 	int t3 = 0, r3 = 0, s3 = 1;
-
+	int walk1[6] = {-1,-1,0,1,1,0};//鸟行走-腿上
+	int walk2[6] = {1,0,0,0,1,0};//鸟行走-腿下
+	int walk3[6] = {1,1,0,-1,-1,0};//鸟行走-腿上
+	int walk4[6] = {0,1,0,1,0,0};//鸟行走-腿下
+	int wa1 = 0;//鸟行走
+	int wa2 = 0;//鸟行走
+	int wb1 = 0;//鸟行走
+	int wb2 = 0;//鸟行走
+	int mb = 0;//birdB腿动
+	int mi1 = 0;
+	int mi2 = 0;
 	int ax = 0, ay = 0, az = 0;
 	float lx =0.5, ly =11, lz =5;
 	float pox = 0.0, poy = 0.0, poz = 0.0;
@@ -35,41 +45,6 @@
 	float spot_directionx=0.0;
 	float spot_directiony=0.0;
 	float spot_directionz=0.0;
-
-	//int u = 1;
-	//int t1 = 1, r1 = 0, s1 = 3;
-	//int t2 = 1, r2 = 0, s2 = 3;
-	//t3 = 0; r3 = 0; s3 = 1;
-
-	//ax = ay = az = 0;
-	//lx =0;ly =0.5; lz =0;
-	//pox = 0.0; poy = 0.0; poz = 0.0;
-
-	////设置轨迹参数
-	//theta = 0.5f;
-	//t = 0.0f;
-	//iMore = 0;
-
-	//view = 0;
-	//ex[0] = ex[1] = ex[2] = -5;
-	//ey[0] = ey[1] = ey[2] = 10.0;
-	//ez[0] = ez[1] = ez[2] = 10.0;
-
-	////观察对象位置
-	//fx[0] = fx[1] = fx[2] = 0.0;
-	//fy[0] = fy[1] = fy[2] = 5.0;
-	//fz[0] = fz[1] = fz[2] = 0.0;
-	//
-	////指定光源的位置
-	//light_position[0] = lx;
-	//light_position[1] = ly;
-	//light_position[2] = lz;
-	//light_position[3] = 0.0;
-
-	////设置聚光方向
-	//spot_directionx=0.0;
-	//spot_directiony=0.0;
-	//spot_directionz=0.0;
 
 int main(int argc, char *argv[])
 
@@ -121,9 +96,9 @@ void init()
     glEnable(GL_CULL_FACE);                        //启用裁剪
     glEnable(GL_TEXTURE_2D);
     LoadGLTextures();  //载入纹理贴图
-	//glEnable(GL_LIGHTING);
-	//glEnable(GL_LIGHT0);
-	//glEnable(GL_COLOR_MATERIAL);
+	/*glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_COLOR_MATERIAL);*/
 }
 
 void reshape(int w,int h)
@@ -204,11 +179,14 @@ void myDisplay()
 		//r1=27;
 	 	translate(0.6);
 	}	
-	glRotatef(HierParam*2,0.0f,1.0f,0.0f);
+	if(pox>=3.3||pox<=-3.3)
+		glRotatef(HierParam,0.0f,1.0f,0.0f);
+	if((pox>=1.1||pox<=-1.1)&&(pox<=3.3||pox>=-3.3))
+		glRotatef(HierParam,0.0f,1.0f,0.0f);
 	glTranslatef(pox,27*0.35,poy);
 	glRotatef(10*r1,0.0,1.0,0.0);
 	glScalef(0.2*s1,0.2*s1,0.2*s1);
-	glRotatef(u,0.0,1.0,0.0);
+	//glRotatef(u,0.0,1.0,0.0);
 	drawBirdA();
 	glPopMatrix();
 
@@ -223,7 +201,6 @@ void myDisplay()
 	glTranslatef(light_position[0], light_position[1],light_position[2]);
 	glMultMatrixf(m);
 	glTranslatef(-light_position[0], -light_position[1],-light_position[2]);
-	
 	glTranslatef(pox,0.0,poy);
 	glRotatef(10*r1,0.0,1.0,0.0);
 	glScalef(0.2*s1,0.2*s1,0.2*s1);
@@ -231,9 +208,11 @@ void myDisplay()
 	glPopMatrix();
 
 	//画birdB
-	//glPushMatrix();
-	//glScalef(0.5,0.5,0.5);
-	//glTranslatef(1,0.0,0.0);
+	//glPushMatrix();	
+	//glTranslatef(4*0.35,31*0.35-R1*0.2*s2,1*0.35-R1*0.2*s2);
+	//glRotatef(90,0.0,1.0,0.0);
+	//glRotatef(HierParam,0.0f,1.0f,0.0f);
+	//glScalef(0.2*s2,0.2*s2,0.2*s2);
 	//drawBirdB();
 	//glPopMatrix();
 
@@ -254,10 +233,28 @@ void myDisplay()
 	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
 	glRotatef(u,0.0,1.0,0.0);
-	glScalef(0.35,0.35,0.35);
+	//glScalef(0.35,0.35,0.35);
 	drawCastle();
 	glPopMatrix();
 	glDisable(GL_TEXTURE_2D);
+
+	//glPushMatrix();
+	//glScalef(0.35,0.35,0.35);
+	//glTranslatef(3*2.0f,13*2.0f,0.0f);
+	//glRotatef(180,0.0f,1.0f,0.0f);
+	//glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
+	//
+	//glPushMatrix();
+	//drawPart3();
+	//glPopMatrix();
+
+	//glPushMatrix();	
+	//glTranslatef(2,5-R1*0.2*s2,1-R1*0.2*s2);
+	//glRotatef(90,0.0,1.0,0.0);
+	//glScalef(0.2*s2,0.2*s2,0.2*s2);
+	//drawBirdB();
+	//glPopMatrix();
+	//glPopMatrix();
 
 	//画城堡阴影
 	/*glPushMatrix();

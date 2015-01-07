@@ -32,9 +32,9 @@ void setLight(){
 void drawSun()
 {
 			//…Ë÷√≤ƒ¡œ Ù–‘
-		GLfloat material_ambient[] = {0.1, 0.1, 0.1, 1.0};
-		GLfloat material_diffuse[] = {0.0, 0.0, 0.0, 1.0};
-		GLfloat material_specular[] = {0.0, 0.0, 0.0, 1.0};
+		GLfloat material_ambient[] = {0.5, 0.5, 0.02, 1.0};
+		GLfloat material_diffuse[] = {0.6, 0.5, 0.0, 1.0};
+		GLfloat material_specular[] = {0.4, 0.4, 0.0, 1.0};
 
 		glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient);
 		glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse);

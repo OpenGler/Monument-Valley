@@ -14,8 +14,14 @@ void mouse(int btn, int state, int x, int y)
 void mykey(unsigned char key, int x, int y)
 {
 	//乌鸦A
-	if(key == 'Q'|| key == 'q') //平移
+	if(key == 'Q'|| key == 'q'){ //平移
 		translate();
+		t1++;
+		wa1 = walk1[t1%6];
+		wa2 = walk2[t1%6];
+		wb1 = walk3[t1%6];
+		wb2 = walk4[t1%6];
+	}
 	if(key == 'Z'|| key == 'z') //平移
 		translate();
 	if(key == 'A'|| key == 'a')//放大
@@ -97,6 +103,8 @@ void mykey(unsigned char key, int x, int y)
 		iMore=0;
 		glutIdleFunc(idlefunc);
 	}
+
+	glutIdleFunc(funcOfB);//birdB腿动
 	glutPostRedisplay();
 }
 
@@ -148,4 +156,17 @@ void idlefunc()
 	}
 	else
 		iMore = 0;
+}
+void funcOfB()
+{
+	if(true){
+		mb++;
+		int choose1[8]={-1,0,1,2,3,2,1,0};
+		int choose2[8]={2,3,2,1,0,-1,0,1};
+		mi1 = choose1[mb%8];
+		mi2 = choose2[mb%8];
+		glutPostRedisplay();
+		::Sleep(100);
+	}
+
 }

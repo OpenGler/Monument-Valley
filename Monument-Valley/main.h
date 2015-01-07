@@ -23,6 +23,18 @@
 	const GLfloat R3 = 0.075f;
 	const GLfloat R4 = 0.006f;
 	const GLfloat Pi = 3.1415926537f;
+	extern int walk1[];
+	extern int walk2[];
+	extern int walk3[];
+	extern int walk4[];
+
+	extern int wa1;
+	extern int wa2;
+	extern int wb1;
+	extern int wb2;
+	extern int mb;//birdB腿动
+	extern int mi1;
+	extern int mi2;
 
 	extern int t1, r1, s1;
 	extern int t2, r2, s2;
@@ -100,6 +112,7 @@ void mouse(int, int, int, int);//鼠标回调
 void mykey(unsigned char, int, int);//键盘回调
 void mymenu(int);//菜单
 void idlefunc();//自由轨迹移动
+void funcOfB();//birdB腿动
 
 
 
@@ -110,6 +123,7 @@ void drawBackground();//画背景
 void drawCoordinateSystem();//画坐标系
 void materialLight1();//物体材料设定1    给城堡和环境的材料设定
 void materialLight2();//物体材料设定2	 给乌鸦的材料设定
+void materialLight3();//物体材料设定3	 给乌鸦的眼睛材料设定
 
 
 

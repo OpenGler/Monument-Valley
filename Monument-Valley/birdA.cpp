@@ -14,7 +14,6 @@ void drawBirdA()
 	//×ì°ÍÉÏ
 	glPushMatrix();
 	glBegin(GL_TRIANGLE_FAN);
-		//glColor3f(0.5f,0.5f,0.5f);
 	    GLfloat v1[3] = {-3*R1,5*R1,0.0f};
 		GLfloat v2[3];
 		GLfloat v3[3];
@@ -44,8 +43,6 @@ void drawBirdA()
 	//×ì°ÍÏÂ
 	glPushMatrix();
 	glBegin(GL_TRIANGLE_FAN);
-		//glColor3f(0.5f,0.5f,0.5f);
-		//glColor3f(0.5f,0.5f,0.5f);
 		glVertex3f(-3*R1,5*R1,0.0f);
 		for(int i = 0; i <= n/2; i++)
 			if(i==0){
@@ -77,16 +74,8 @@ void drawBirdA()
 	glutSolidSphere(R2,100,100);
 	glPopMatrix();
 
-			//ÉèÖÃ²ÄÁÏÊôÐÔ
-		GLfloat material_ambient2[] = {0.0, 0.0, 0.0, 1.0};
-		GLfloat material_diffuse2[] = {0.0, 0.0, 0.0, 1.0};
-		GLfloat material_specular2[] = {0.0, 0.0, 0.0, 1.0};
-		GLfloat material_shininess2 = 100.0;
-
-		glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient2);
-		glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse2);
-		glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular2);
-		glMaterialf( GL_FRONT, GL_SHININESS, material_shininess2);
+	//ÉèÖÃ²ÄÁÏÊôÐÔ
+	materialLight3();	
 
 	glPushMatrix();
 	glColor3f(0.0f,0.0f,0.0f);
@@ -105,10 +94,7 @@ void drawBirdA()
 	glutSolidSphere(R2,100,100);
 	glPopMatrix();
 
-		glMaterialfv( GL_FRONT, GL_AMBIENT, material_ambient2);
-		glMaterialfv( GL_FRONT, GL_DIFFUSE, material_diffuse2);
-		glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular2);
-		glMaterialf( GL_FRONT, GL_SHININESS, material_shininess2);
+	materialLight3();
 
 	glPushMatrix();
 	glColor3f(0.0f,0.0f,0.0f);
@@ -129,37 +115,67 @@ void drawBirdA()
 
 	//ÓÒÍÈ
 	glPushMatrix();
-	glColor3f(0.0f,1.0f,1.0f);
-	glTranslatef(0,R1,-2*R4);
-	glRotatef(90, 1.0, 0.0, 0.0);
-	GLUquadricObj *objCylinder = gluNewQuadric();
-	gluCylinder(objCylinder, R4, R4, R1, 32, 5);
-	glPopMatrix();
-	//×óÍÈ
-	glPushMatrix();
-	glColor3f(0.0f,1.0f,1.0f);
-	glTranslatef(0,R1,2*R4);
-	glRotatef(90, 1.0, 0.0, 0.0);
-	gluCylinder(objCylinder, R4, R4, R1, 32, 5);
+		glTranslatef(0,R1,0);	
+		glRotatef(20*wa1, 0.0, 0.0, 1.0);
+		glTranslatef(0,-R1,0);
+		//ÓÒÍÈÉÏ
+		glPushMatrix();
+			glColor3f(0.0f,1.0f,1.0f);
+			glTranslatef(0,R1,-2*R4);
+			glRotatef(90, 1.0, 0.0, 0.0);
+			GLUquadricObj *objCylinder = gluNewQuadric();
+			gluCylinder(objCylinder, R4, R4, R1/2, 32, 5);
+		glPopMatrix();
+		//ÓÒÍÈÏÂ
+		glPushMatrix();
+			glColor3f(0.0f,1.0f,1.0f);
+			glTranslatef(0,R1/2,-2*R4);
+			glRotatef(10*wa2, 0.0, 0.0, 1.0);
+			glRotatef(90, 1.0, 0.0, 0.0);
+			gluCylinder(objCylinder, R4, R4, R1/2, 32, 5);
+		glPopMatrix();
+		//ÓÒ½Å
+		glPushMatrix();
+		glBegin(GL_TRIANGLE_FAN);
+			glColor3f(0.0f,0.0f,0.0f);
+			glRotatef(10*wa2, 0.0, 0.0, 1.0);
+			glVertex3f(-10*R4,0,-2*R4);
+			for(int i = 0; i < n/2; i++)
+				glVertex3f(0,2*R4*sin(2*Pi/n*i), 2*R4*cos(2*Pi/n*i)-2*R4);
+		glEnd();
+		glPopMatrix();
 	glPopMatrix();
 
-	//ÓÒ½Å
+	//×óÍÈ
 	glPushMatrix();
-	glBegin(GL_TRIANGLE_FAN);
-		glColor3f(0.0f,0.0f,0.0f);
-		glVertex3f(-10*R4,0,-2*R4);
-		for(int i = 0; i < n/2; i++)
-			glVertex3f(0,2*R4*sin(2*Pi/n*i), 2*R4*cos(2*Pi/n*i)-2*R4);
-	glEnd();
-	glPopMatrix();
-	//×ó½Å
-	glPushMatrix();
-	glBegin(GL_TRIANGLE_FAN);
-		glColor3f(0.0f,0.0f,0.0f);
-		glVertex3f(-10*R4,0,2*R4);
-		for(int i = 0; i < n/2; i++)
-			glVertex3f(0,2*R4*sin(2*Pi/n*i), 2*R4*cos(2*Pi/n*i)+2*R4);
-	glEnd();
+		glTranslatef(0,R1,0);	
+		glRotatef(20*wb1, 0.0, 0.0, 1.0);
+		glTranslatef(0,-R1,0);
+		//×óÍÈÉÏ
+		glPushMatrix();
+			glColor3f(0.0f,1.0f,1.0f);
+			glTranslatef(0,R1,2*R4);
+			glRotatef(90, 1.0, 0.0, 0.0);
+			gluCylinder(objCylinder, R4, R4, R1/2, 32, 5);
+		glPopMatrix();
+		//×óÍÈÏÂ
+		glPushMatrix();
+			glColor3f(0.0f,1.0f,1.0f);
+			glTranslatef(0,R1/2,2*R4);
+			glRotatef(10*wb2, 0.0, 0.0, 1.0);
+			glRotatef(90, 1.0, 0.0, 0.0);
+			gluCylinder(objCylinder, R4, R4, R1/2, 32, 5);
+		glPopMatrix();
+		//×ó½Å
+		glPushMatrix();
+		glBegin(GL_TRIANGLE_FAN);
+			glColor3f(0.0f,0.0f,0.0f);
+			glRotatef(10*wb2, 0.0, 0.0, 1.0);
+			glVertex3f(-10*R4,0,2*R4);
+			for(int i = 0; i < n/2; i++)
+				glVertex3f(0,2*R4*sin(2*Pi/n*i), 2*R4*cos(2*Pi/n*i)+2*R4);
+		glEnd();
+		glPopMatrix();
 	glPopMatrix();
 }
 

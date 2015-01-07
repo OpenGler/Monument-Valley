@@ -397,12 +397,14 @@ void drawCastle()
 	materialLight1();
 
 	glPushMatrix();
+	glScalef(0.35,0.35,0.35);
 	glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
 	glTranslatef(-6*2,0.0f,0.0f);
 	drawPart1();
 	glPopMatrix();
 
 	glPushMatrix();
+	glScalef(0.35,0.35,0.35);
 	glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
 	glTranslatef(6*2,0.0f,0.0f);
 	glRotatef(180,0.0f,1.0f,0.0f);
@@ -410,21 +412,52 @@ void drawCastle()
 	glPopMatrix();
   
 	glPushMatrix();
+	glScalef(0.35,0.35,0.35);
 	drawPart2();
-	//glRotatef(HierParam,0.0f,1.0f,0.0f);
 	glPopMatrix();
 
 	glPushMatrix();
+	glScalef(0.35,0.35,0.35);
 	glTranslatef(-3*2.0f,13*2.0f,0.0f);
 	glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
 	drawPart3();
 	glPopMatrix();
 
+	//
+	//glPushMatrix();
+	//glScalef(0.35,0.35,0.35);
+	//glTranslatef(3*2.0f,13*2.0f,0.0f);
+	//glRotatef(180,0.0f,1.0f,0.0f);
+	//glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
+	//drawPart3();
+	//glPopMatrix();
+
+	////»­birdB
+	//glPushMatrix();	
+	//glTranslatef(4*0.35,31*0.35-R1*0.2*s2,1*0.35-R1*0.2*s2);
+	//glRotatef(90,0.0,1.0,0.0);
+	//glRotatef(HierParam,0.0f,1.0f,0.0f);
+	//glScalef(0.2*s2,0.2*s2,0.2*s2);
+	//drawBirdB();
+	//glPopMatrix();
+
+	//
 	glPushMatrix();
+	glScalef(0.35,0.35,0.35);
 	glTranslatef(3*2.0f,13*2.0f,0.0f);
 	glRotatef(180,0.0f,1.0f,0.0f);
 	glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
+	
+	glPushMatrix();
 	drawPart3();
+	glPopMatrix();
+
+	glPushMatrix();	
+	glTranslatef(2,5-R1*0.2*s2,1-R1*0.2*s2);
+	glRotatef(90,0.0,1.0,0.0);
+	glScalef(0.2*s2,0.2*s2,0.2*s2);
+	drawBirdB();
+	glPopMatrix();
 	glPopMatrix();
 
 }

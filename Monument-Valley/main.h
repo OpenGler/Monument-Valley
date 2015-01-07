@@ -36,6 +36,8 @@
 	extern GLfloat theta;
 	extern GLfloat t;
 	extern unsigned int iMore;
+	extern int HierParam;
+	extern int Animation;
 
 	extern GLint view;
 	extern GLfloat ex[]; //π€≤Ï’ﬂŒª÷√

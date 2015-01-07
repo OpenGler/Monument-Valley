@@ -58,6 +58,14 @@ void mykey(unsigned char key, int x, int y)
 	//城堡
 	if(key == 'U'|| key == 'u')//y-
 			u +=1;
+	//层次建模移动
+	if(key == 'C'|| key == 'c'){
+			HierParam+=90;
+			u += 90;
+	}
+	if(key == 'W'|| key == 'w'){
+			Animation=0;
+	}
 
 
 	//改变观察者位置

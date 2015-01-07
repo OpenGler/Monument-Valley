@@ -397,11 +397,13 @@ void drawCastle()
 	materialLight1();
 
 	glPushMatrix();
+	glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
 	glTranslatef(-6*2,0.0f,0.0f);
 	drawPart1();
 	glPopMatrix();
 
 	glPushMatrix();
+	glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
 	glTranslatef(6*2,0.0f,0.0f);
 	glRotatef(180,0.0f,1.0f,0.0f);
 	drawPart1();
@@ -409,16 +411,19 @@ void drawCastle()
   
 	glPushMatrix();
 	drawPart2();
+	//glRotatef(HierParam,0.0f,1.0f,0.0f);
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(-3*2.0f,13*2.0f,0.0f);
+	glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
 	drawPart3();
 	glPopMatrix();
 
 	glPushMatrix();
 	glTranslatef(3*2.0f,13*2.0f,0.0f);
 	glRotatef(180,0.0f,1.0f,0.0f);
+	glRotatef(HierParam,0.0f,1.0f,0.0f);//i=1
 	drawPart3();
 	glPopMatrix();
 

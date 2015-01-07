@@ -15,6 +15,8 @@
 	GLfloat theta = 0.5f;
 	GLfloat t = 0.0f;
 	unsigned int  iMore = 0;
+	int HierParam = 0;
+	int Animation = 90;
 
 	GLint view = 0;
 	GLfloat ex[3] = {-1, -1, -1};
@@ -107,6 +109,7 @@ void init()
 	//glClearColor(1.0,1.0,1.0,1.0);
 	//glColor3f(0.0f,0.0f,0.0f);
 	//glShadeModel(GL_SMOOTH);
+	
 
 	glEnable(GL_DEPTH_TEST);
 	glClearColor(1.0, 1.0, 1.0, 1.0);
@@ -162,6 +165,11 @@ void reshape(int w,int h)
 
 void myDisplay()
 {
+	if(Animation<90){
+		u++;
+		HierParam++;
+		Animation++;
+	}
 	setLight();
 	glClearColor(1.0,1.0,1.0,1.0);
     glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
@@ -196,9 +204,11 @@ void myDisplay()
 		//r1=27;
 	 	translate(0.6);
 	}	
+	glRotatef(HierParam*2,0.0f,1.0f,0.0f);
 	glTranslatef(pox,27*0.35,poy);
 	glRotatef(10*r1,0.0,1.0,0.0);
 	glScalef(0.2*s1,0.2*s1,0.2*s1);
+	glRotatef(u,0.0,1.0,0.0);
 	drawBirdA();
 	glPopMatrix();
 
@@ -220,6 +230,7 @@ void myDisplay()
 	drawShadowBirdA();
 	glPopMatrix();
 
+	//»­birdB
 	//glPushMatrix();
 	//glScalef(0.5,0.5,0.5);
 	//glTranslatef(1,0.0,0.0);
@@ -242,7 +253,7 @@ void myDisplay()
 	//»­³Ç±¤
 	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
-	glRotatef(2*u,0.0,1.0,0.0);
+	glRotatef(u,0.0,1.0,0.0);
 	glScalef(0.35,0.35,0.35);
 	drawCastle();
 	glPopMatrix();

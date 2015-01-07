@@ -14,8 +14,14 @@ void mouse(int btn, int state, int x, int y)
 void mykey(unsigned char key, int x, int y)
 {
 	//乌鸦A
-	if(key == 'Q'|| key == 'q') //平移
+	if(key == 'Q'|| key == 'q'){ //平移
 		translate();
+		t1++;
+		wa1 = walk1[t1%6];
+		wa2 = walk2[t1%6];
+		wb1 = walk3[t1%6];
+		wb2 = walk4[t1%6];
+	}
 	if(key == 'Z'|| key == 'z') //平移
 		translate();
 	if(key == 'A'|| key == 'a')//放大

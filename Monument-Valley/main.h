@@ -23,6 +23,15 @@
 	const GLfloat R3 = 0.075f;
 	const GLfloat R4 = 0.006f;
 	const GLfloat Pi = 3.1415926537f;
+	extern int walk1[];
+	extern int walk2[];
+	extern int walk3[];
+	extern int walk4[];
+
+	extern int wa1;
+	extern int wa2;
+	extern int wb1;
+	extern int wb2;
 
 	extern int t1, r1, s1;
 	extern int t2, r2, s2;

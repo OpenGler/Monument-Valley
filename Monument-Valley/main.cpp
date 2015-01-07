@@ -4,7 +4,7 @@
 
 	int u = 1;
 	int t1 = 1, r1 = 0, s1 = 5;
-	int t2 = 1, r2 = 0, s2 = 3;
+	int t2 = 1, r2 = 0, s2 = 5;
 	int t3 = 0, r3 = 0, s3 = 1;
 	int walk1[6] = {-1,-1,0,1,1,0};//鸟行走-腿上
 	int walk2[6] = {1,0,0,0,1,0};//鸟行走-腿下
@@ -14,6 +14,9 @@
 	int wa2 = 0;//鸟行走
 	int wb1 = 0;//鸟行走
 	int wb2 = 0;//鸟行走
+	int mb = 0;//birdB腿动
+	int mi1 = 0;
+	int mi2 = 0;
 	int ax = 0, ay = 0, az = 0;
 	float lx =0.5, ly =11, lz =5;
 	float pox = 0.0, poy = 0.0, poz = 0.0;
@@ -225,24 +228,24 @@ void myDisplay()
     m[0]=m[5]=m[10]=1.0;
 	m[7]=-1.0/light_position[1];
 	
-	//画birdA阴影
-	glPushMatrix();
-	glTranslatef(light_position[0], light_position[1],light_position[2]);
-	glMultMatrixf(m);
-	glTranslatef(-light_position[0], -light_position[1],-light_position[2]);
-	
-	glTranslatef(pox,0.0,poy);
-	glRotatef(10*r1,0.0,1.0,0.0);
-	glScalef(0.2*s1,0.2*s1,0.2*s1);
-	drawShadowBirdA();
-	glPopMatrix();
+	////画birdA阴影
+	//glPushMatrix();
+	//glTranslatef(light_position[0], light_position[1],light_position[2]);
+	//glMultMatrixf(m);
+	//glTranslatef(-light_position[0], -light_position[1],-light_position[2]);
+	//glTranslatef(pox,0.0,poy);
+	//glRotatef(10*r1,0.0,1.0,0.0);
+	//glScalef(0.2*s1,0.2*s1,0.2*s1);
+	//drawShadowBirdA();
+	//glPopMatrix();
 
 	//画birdB
-	//glPushMatrix();
-	//glScalef(0.5,0.5,0.5);
-	//glTranslatef(1,0.0,0.0);
-	//drawBirdB();
-	//glPopMatrix();
+	glPushMatrix();	
+	glTranslatef(4*0.35,31*0.35-R1*0.2*s2,1*0.35-R1*0.2*s2);
+	glScalef(0.2*s2,0.2*s2,0.2*s2);
+	glRotatef(90,0.0,1.0,0.0);
+	drawBirdB();
+	glPopMatrix();
 
 	//画太阳
 	glPushMatrix();

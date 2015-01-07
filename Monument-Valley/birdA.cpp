@@ -14,7 +14,6 @@ void drawBirdA()
 	//×ì°ÍÉÏ
 	glPushMatrix();
 	glBegin(GL_TRIANGLE_FAN);
-		//glColor3f(0.5f,0.5f,0.5f);
 	    GLfloat v1[3] = {-3*R1,5*R1,0.0f};
 		GLfloat v2[3];
 		GLfloat v3[3];
@@ -44,8 +43,6 @@ void drawBirdA()
 	//×ì°ÍÏÂ
 	glPushMatrix();
 	glBegin(GL_TRIANGLE_FAN);
-		//glColor3f(0.5f,0.5f,0.5f);
-		//glColor3f(0.5f,0.5f,0.5f);
 		glVertex3f(-3*R1,5*R1,0.0f);
 		for(int i = 0; i <= n/2; i++)
 			if(i==0){

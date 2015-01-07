@@ -32,6 +32,9 @@
 	extern int wa2;
 	extern int wb1;
 	extern int wb2;
+	extern int mb;//birdB腿动
+	extern int mi1;
+	extern int mi2;
 
 	extern int t1, r1, s1;
 	extern int t2, r2, s2;
@@ -109,6 +112,7 @@ void mouse(int, int, int, int);//鼠标回调
 void mykey(unsigned char, int, int);//键盘回调
 void mymenu(int);//菜单
 void idlefunc();//自由轨迹移动
+void funcOfB();//birdB腿动
 
 
 

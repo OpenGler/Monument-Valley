@@ -3,12 +3,6 @@
 //»­ÎÚÑ»B
 void drawBirdB()
 {
-	//±ä»»
-	glTranslatef(1,0.0,0.0);
-	glTranslatef(-0.1*t2,0.0,0.0);
-	glRotatef(10*r2,0.0,1.0,0.0);
-	glScalef(0.2*s2,0.2*s2,0.2*s2);
-
 	//Í·
 	glPushMatrix();
 	glColor3f(0.0f,1.0f,1.0f);
@@ -74,24 +68,22 @@ void drawBirdB()
 	glutSolidCone(R1,3*R1,100,100);
 	glPopMatrix();
 
+	//ÓÒÏÂÖ«
+	glPushMatrix();
+	glTranslatef(-R1,R1,0);
+	glRotatef(-20*mi1, 0.0, 0.0, 1.0);
+	glTranslatef(R1,-R1,0);
 	//ÓÒÍÈ
 	glPushMatrix();
 	glColor3f(0.0f,1.0f,1.0f);
-	glTranslatef(0,R1,-2*R4);
+	glTranslatef(-R1,R1,-2*R4);
 	glRotatef(90, 1.0, 0.0, 0.0);
 	GLUquadricObj *objCylinder = gluNewQuadric();
 	gluCylinder(objCylinder, R4, R4, R1, 32, 5);
 	glPopMatrix();
-	//×óÍÈ
-	glPushMatrix();
-	glColor3f(0.0f,1.0f,1.0f);
-	glTranslatef(0,R1,2*R4);
-	glRotatef(90, 1.0, 0.0, 0.0);
-	gluCylinder(objCylinder, R4, R4, R1, 32, 5);
-	glPopMatrix();
-
 	//ÓÒ½Å
 	glPushMatrix();
+	glTranslatef(-R1,0,0);
 	glBegin(GL_TRIANGLE_FAN);
 		glColor3f(0.0f,1.0f,1.0f);
 		glVertex3f(-10*R4,0,-2*R4);
@@ -99,13 +91,29 @@ void drawBirdB()
 			glVertex3f(0,2*R4*sin(2*Pi/n*i), 2*R4*cos(2*Pi/n*i)-2*R4);
 	glEnd();
 	glPopMatrix();
+	glPopMatrix();
+
+	//×óÏÂÖ«
+	glPushMatrix();
+	glTranslatef(-R1,R1,0);
+	glRotatef(-20*mi2, 0.0, 0.0, 1.0);
+	glTranslatef(R1,-R1,0);
+	//×óÍÈ
+	glPushMatrix();
+	glColor3f(0.0f,1.0f,1.0f);
+	glTranslatef(-R1,R1,2*R4);
+	glRotatef(90, 1.0, 0.0, 0.0);
+	gluCylinder(objCylinder, R4, R4, R1, 32, 5);
+	glPopMatrix();
 	//×ó½Å
 	glPushMatrix();
+	glTranslatef(-R1,0,0);
 	glBegin(GL_TRIANGLE_FAN);
 		glColor3f(0.0f,1.0f,1.0f);
 		glVertex3f(-10*R4,0,2*R4);
 		for(int i = 0; i < n/2; i++)
 			glVertex3f(0,2*R4*sin(2*Pi/n*i), 2*R4*cos(2*Pi/n*i)+2*R4);
 	glEnd();
+	glPopMatrix();
 	glPopMatrix();
 }

@@ -103,6 +103,8 @@ void mykey(unsigned char key, int x, int y)
 		iMore=0;
 		glutIdleFunc(idlefunc);
 	}
+
+	glutIdleFunc(funcOfB);//birdBÕ»∂Ø
 	glutPostRedisplay();
 }
 
@@ -154,4 +156,17 @@ void idlefunc()
 	}
 	else
 		iMore = 0;
+}
+void funcOfB()
+{
+	if(true){
+		mb++;
+		int choose1[8]={-1,0,1,2,3,2,1,0};
+		int choose2[8]={2,3,2,1,0,-1,0,1};
+		mi1 = choose1[mb%8];
+		mi2 = choose2[mb%8];
+		glutPostRedisplay();
+		::Sleep(100);
+	}
+
 }

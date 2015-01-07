@@ -1,4 +1,5 @@
 #include "main.h"
+using namespace std;
 
 
 //ª≠∑®œÚ¡ø
@@ -23,4 +24,6 @@ void norm(GLfloat v1[3], GLfloat v2[3], GLfloat v3[3], GLfloat *nor )
 void translate(float temp){
 	pox-= 0.1*temp*cos(10*r1*Pi/180);
 	poy+= 0.1*temp*sin(10*r1*Pi/180);
+	cout<<"pox : "<<pox<<endl;
+	cout<<"poy : "<<poy<<endl;
 }
